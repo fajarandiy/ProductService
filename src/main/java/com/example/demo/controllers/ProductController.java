@@ -1,9 +1,14 @@
 package com.example.demo.controllers;
 
+import java.util.Map;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,5 +30,39 @@ public class ProductController {
 		repo.save(productObj);
 		return "success";
 	}
+	
+	@GetMapping("/getProductAll")
+	public Iterable<Product> getAll(){
+		return repo.findAll();
+	}
+	
+	@GetMapping("/getProductById/{id}")
+	public Product getProductById (@PathVariable(value="id") Integer productId) {
+		return repo.findById(productId).get();
+	}
+	
+	@PostMapping("/getProductByType")
+	public Iterable<Product> getProductByType (@Valid @RequestBody Map productMap) {
+		return repo.findByType((String) productMap.get("productType"));
+	}
+	
+	@PostMapping("/getProductByName")
+	public Iterable<Product>  getProductById (@Valid @RequestBody Map productMap) {
+		return repo.findByName((String) productMap.get("productName"));
+	}
+	
+	@GetMapping("/deleteProductById/{id}")
+	public Boolean deleteProduct (@PathVariable(value="id") Integer productId) {
+		repo.deleteById(productId);
+		return true;
+	}
+	
+	@PutMapping("/updateProductById/{id}")
+	public Product updateProductById (@Valid @RequestBody Product obj, @PathVariable(value="id") Integer productId) {
+		Product cust = repo.findById(productId).get();
+		repo.save(cust);
+		return cust;
+	}
+	
 	
 }

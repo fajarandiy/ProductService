@@ -7,12 +7,12 @@ public class Product {
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
 		private int id;
-		private String productCode;
+		private String code;
 		private String name;
 		private double price;
 		private String image;
 		private String merchant;
-		private String productType;
+		private String type;
 		private String description;
 		private String additionalInfo;
 		private String status;
@@ -41,11 +41,11 @@ public class Product {
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		public String getProductCode() {
-			return productCode;
+		public String getCode() {
+			return code;
 		}
 		public void setProductCode(String productCode) {
-			this.productCode = productCode;
+			this.code = code;
 		}
 		public String getMerchant() {
 			return merchant;
@@ -54,10 +54,10 @@ public class Product {
 			this.merchant = merchant;
 		}
 		public String getProductType() {
-			return productType;
+			return type;
 		}
 		public void setProductType(String productType) {
-			this.productType = productType;
+			this.type = productType;
 		}
 		public String getAdditionalInfo() {
 			return additionalInfo;
