@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>PruductService</artifactId>
+	<artifactId>Pruduct</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PruductService</name>
 	<description>Demo project for Spring Boot</description>
@@ -38,6 +38,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
 	</dependencies>
 
 	<build>

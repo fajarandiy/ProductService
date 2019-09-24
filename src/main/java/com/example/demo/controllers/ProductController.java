@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.models.Product;
 import com.example.demo.repositories.ProductRepository;
+import com.example.demo.util.BaseUtil;
 
 
 @RestController
@@ -60,10 +61,10 @@ public class ProductController {
 	
 	@PostMapping("/updateProductById/{id}")
 	public Product updateProductById (@Valid @RequestBody Product productObj, @PathVariable(value="id") Integer productId) {
-		Product productObjNew = repo.findById(productId).get();
-		productObjNew.setStatus(productObj.getStatus());
-		repo.save(productObjNew);
-		return productObjNew;
+		Product productFromDB = repo.findById(productId).get();
+		BaseUtil.setObjectFromObject(productFromDB, productObj);
+		repo.save(productFromDB);
+		return productFromDB;
 	}
 	
 	
