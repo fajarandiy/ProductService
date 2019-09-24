@@ -16,7 +16,18 @@ public class Product {
 		private String description;
 		private String additionalInfo;
 		private String status;
-		
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+		public String getCode() {
+			return code;
+		}
+		public void setCode(String code) {
+			this.code = code;
+		}
 		public String getName() {
 			return name;
 		}
@@ -35,29 +46,23 @@ public class Product {
 		public void setImage(String image) {
 			this.image = image;
 		}
-		public String getDescription() {
-			return description;
-		}
-		public void setDescription(String description) {
-			this.description = description;
-		}
-		public String getCode() {
-			return code;
-		}
-		public void setProductCode(String productCode) {
-			this.code = code;
-		}
 		public String getMerchant() {
 			return merchant;
 		}
 		public void setMerchant(String merchant) {
 			this.merchant = merchant;
 		}
-		public String getProductType() {
+		public String getType() {
 			return type;
 		}
-		public void setProductType(String productType) {
-			this.type = productType;
+		public void setType(String type) {
+			this.type = type;
+		}
+		public String getDescription() {
+			return description;
+		}
+		public void setDescription(String description) {
+			this.description = description;
 		}
 		public String getAdditionalInfo() {
 			return additionalInfo;
@@ -71,6 +76,8 @@ public class Product {
 		public void setStatus(String status) {
 			this.status = status;
 		}
+		
+	
 
 
 }

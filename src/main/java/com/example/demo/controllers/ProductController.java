@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import java.util.Map;
 
+import javax.persistence.PersistenceUnits;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,11 +58,12 @@ public class ProductController {
 		return true;
 	}
 	
-	@PutMapping("/updateProductById/{id}")
-	public Product updateProductById (@Valid @RequestBody Product obj, @PathVariable(value="id") Integer productId) {
-		Product cust = repo.findById(productId).get();
-		repo.save(cust);
-		return cust;
+	@PostMapping("/updateProductById/{id}")
+	public Product updateProductById (@Valid @RequestBody Product productObj, @PathVariable(value="id") Integer productId) {
+		Product productObjNew = repo.findById(productId).get();
+		productObjNew.setStatus(productObj.getStatus());
+		repo.save(productObjNew);
+		return productObjNew;
 	}
 	
 	
