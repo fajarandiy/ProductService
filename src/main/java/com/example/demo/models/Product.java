@@ -17,7 +17,6 @@ public class Product {
 		private String additionalInfo;
 		private String status;
 		
-		
 		public String getName() {
 			return name;
 		}
